@@ -1,0 +1,47 @@
+city_name: 'beijing'
+
+build:
+  origin: 
+  destination: 
+  shape: [0,0,0]
+  cost_per: [0.5,0.3,0.3]
+  budget: 50
+  corridor: 0
+  pre_line: 2
+  max_line: 2
+  min_num: 10
+
+# agent
+agent_specs:
+  batch_stage: false
+
+
+gamma: 0.99
+tau: 0.0
+state_encoder_specs:
+  state_encoder_hidden_size: [32, 16]
+  gcn_node_dim: 32
+  num_gcn_layers: 2
+  num_edge_fc_layers: 2
+  max_num_nodes: 2000
+  max_num_edges: 3000
+  num_attention_heads: 2
+policy_specs:
+  policy_land_use_head_hidden_size: [32, 1]
+  policy_road_head_hidden_size: [32, 1]
+value_specs:
+  value_head_hidden_size: [32, 32, 1]
+lr: 4.0e-4
+weightdecay: 0.0
+eps: 1.0e-5
+
+value_pred_coef: 0.5
+entropy_coef: 0.01
+clip_epsilon: 0.2
+
+max_num_iterations: 100
+num_episodes_per_iteration: 500
+max_sequence_length: 30
+num_optim_epoch: 3
+mini_batch_size: 128
+save_model_interval: 5
